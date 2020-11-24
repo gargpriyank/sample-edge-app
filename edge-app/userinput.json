@@ -1,0 +1,13 @@
+{
+  "services": [
+    {
+      "org": "$HZN_ORG_ID",
+      "url": "edge-app",
+      "variables": {
+        "EVENTSTREAMS_TOPIC_NAME": "$EVENTSTREAMS_TOPIC_NAME",
+        "EVENTSTREAMS_BROKER_URL": "$EVENTSTREAMS_BROKER_URL",
+        "EVENTSTREAMS_API_KEY": "$EVENTSTREAMS_API_KEY"
+      }
+    }
+  ]
+}

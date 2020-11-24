@@ -1,0 +1,48 @@
+{
+  "org": "$HZN_ORG_ID",
+  "label": "$SERVICE_NAME for $ARCH",
+  "description": "Edge Application service",
+  "public": true,
+  "documentation": "",
+  "url": "$SERVICE_NAME",
+  "version": "$SERVICE_VERSION",
+  "arch": "$ARCH",
+  "sharable": "singleton",
+  "requiredServices": [
+    {
+      "url": "esf-ieam",
+      "org": "$HZN_ORG_ID",
+      "versionRange": "[0.0.0,INFINITY)",
+      "arch": "$ARCH"
+    }
+  ],
+  "userInput": [
+    {
+      "name": "EVENTSTREAMS_TOPIC_NAME",
+      "label": "The Topic name of the instance of IBM Event Streams",
+      "type": "string",
+      "defaultValue": ""
+    },
+    {
+      "name": "EVENTSTREAMS_BROKER_URL",
+      "label": "The Broker URL of the instance of IBM Event Streams",
+      "type": "string",
+      "defaultValue": ""
+    },
+    {
+      "name": "EVENTSTREAMS_API_KEY",
+      "label": "The API Key of the instance of IBM Event Streams",
+      "type": "string",
+      "defaultValue": ""
+    }
+  ],
+  "deployment": {
+    "services": {
+      "$SERVICE_NAME": {
+        "image": "${DOCKER_IMAGE_BASE}:$SERVICE_VERSION",
+        "network": "edge_workshop",
+        "privileged": true
+      }
+    }
+  }
+}

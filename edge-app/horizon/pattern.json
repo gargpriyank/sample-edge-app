@@ -1,0 +1,18 @@
+{
+  "name": "pattern-edge-demo-apps-$ARCH",
+  "label": "Edge Demo Services Pattern",
+  "description": "Pattern for edge demo services",
+  "public": false,
+  "services": [
+    {
+      "serviceUrl": "edge-app",
+      "serviceOrgid": "$HZN_ORG_ID",
+      "serviceArch": "$ARCH",
+      "serviceVersions": [
+        {
+          "version": "1.0"
+        }
+      ]
+    }
+  ]
+}

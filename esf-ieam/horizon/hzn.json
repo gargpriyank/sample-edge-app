@@ -1,0 +1,8 @@
+{
+  "HZN_ORG_ID": "$HZN_ORG_ID",
+  "MetadataVars": {
+    "DOCKER_IMAGE_BASE": "eurotech/esf-ieam",
+    "SERVICE_NAME": "esf-ieam",
+    "SERVICE_VERSION": "0.1.0"
+  }
+}

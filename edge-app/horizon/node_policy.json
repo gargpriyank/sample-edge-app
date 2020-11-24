@@ -1,0 +1,12 @@
+{
+  "properties": [
+    {
+      "name": "openhorizon.allowPrivileged",
+      "value": true
+    },
+    {
+      "name": "deploy-edge-app",
+      "value": true
+    }
+  ]
+}

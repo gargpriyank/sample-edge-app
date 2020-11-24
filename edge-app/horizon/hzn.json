@@ -1,0 +1,8 @@
+{
+  "HZN_ORG_ID": "$HZN_ORG_ID",
+  "MetadataVars": {
+    "DOCKER_IMAGE_BASE": "sandboxedgeworkshop/edge-app",
+    "SERVICE_NAME": "edge-app",
+    "SERVICE_VERSION": "0.0.1"
+  }
+}

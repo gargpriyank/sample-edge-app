@@ -1,0 +1,41 @@
+{
+  "label": "$SERVICE_NAME Deployment Policy",
+  "description": "A Horizon Deployment Policy example to run edge-app",
+  "service": {
+    "name": "$SERVICE_NAME",
+    "org": "$HZN_ORG_ID",
+    "arch": "$ARCH",
+    "serviceVersions": [
+      {
+        "version": "$SERVICE_VERSION",
+        "priority":{}
+      }
+    ]
+  },
+  "properties": [
+  ],
+  "constraints": [
+    "deploy-edge-app == true"
+  ],
+  "userInput": [
+    {
+      "serviceOrgid": "$HZN_ORG_ID",
+      "serviceUrl": "$SERVICE_NAME",
+      "serviceVersionRange": "[0.0.0,INFINITY)",
+      "inputs": [
+        {
+          "name": "EVENTSTREAMS_TOPIC_NAME",
+          "value": "$EVENTSTREAMS_TOPIC_NAME"
+        },
+        {
+          "name": "EVENTSTREAMS_BROKER_URL",
+          "value": "$EVENTSTREAMS_BROKER_URL"
+        },
+        {
+          "name": "EVENTSTREAMS_API_KEY",
+          "value": "$EVENTSTREAMS_API_KEY"
+        }
+      ]
+    }
+  ]
+}

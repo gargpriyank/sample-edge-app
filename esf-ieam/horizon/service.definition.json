@@ -1,0 +1,33 @@
+{
+  "org": "$HZN_ORG_ID",
+  "label": "$SERVICE_NAME for $ARCH",
+  "description": "ESF service",
+  "public": true,
+  "documentation": "",
+  "url": "$SERVICE_NAME",
+  "version": "$SERVICE_VERSION",
+  "arch": "$ARCH",
+  "sharable": "singleton",
+  "requiredServices": [],
+  "userInput": [
+  ],
+  "deployment": {
+    "services": {
+      "$SERVICE_NAME": {
+        "image": "${DOCKER_IMAGE_BASE}:$SERVICE_VERSION",
+        "network": "edge_workshop",
+        "privileged": true,
+        "ports": [
+          {
+            "HostPort":"1883:1883",
+            "HostIP": "0.0.0.0"
+          },
+          {
+            "HostPort":"80:80",
+            "HostIP": "0.0.0.0"
+          }
+        ]
+      }
+    }
+  }
+}
