@@ -19,10 +19,16 @@ publish-deployment-policy:
 	hzn exchange deployment addpolicy -f horizon/deployment.policy.json $(HZN_ORG_ID)/policy-$(SERVICE_NAME)_$(SERVICE_VERSION)_$(ARCH)
 
 build-publish-all-arches:
-	$(MAKE) build
-	$(MAKE) publish-service
-	$(MAKE) publish-service-policy
-	$(MAKE) publish-deployment-policy
+	$(MAKE) build-all-arches
+	ARCH=amd64 $(MAKE) publish-service
+	ARCH=amd64 $(MAKE) publish-service-policy
+	ARCH=amd64 $(MAKE) publish-deployment-policy
+	ARCH=arm $(MAKE) publish-service
+	ARCH=arm $(MAKE) publish-service-policy
+	ARCH=arm $(MAKE) publish-deployment-policy
+	ARCH=arm64 $(MAKE) publish-service
+	ARCH=arm64 $(MAKE) publish-service-policy
+	ARCH=arm64 $(MAKE) publish-deployment-policy
 
 horizon/.hzn.json.tmp.mk: horizon/hzn.json
 	@ hzn util configconv -f $< | sed 's/=/?=/' > $@
