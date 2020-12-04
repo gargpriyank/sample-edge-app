@@ -2,7 +2,12 @@
 export ARCH ?= $(shell hzn architecture)
 
 build:
-	docker build -t $(DOCKER_IMAGE_BASE):$(SERVICE_VERSION) .
+	docker build -t $(DOCKER_IMAGE_BASE):$(SERVICE_VERSION) -f ./Dockerfile.$(ARCH) .
+
+build-all-arches:
+	ARCH=amd64 $(MAKE) build
+	ARCH=arm $(MAKE) build
+	ARCH=arm64 $(MAKE) build
 
 publish-service:
 	hzn exchange service publish -O -f horizon/service.definition.json
@@ -13,7 +18,7 @@ publish-service-policy:
 publish-deployment-policy:
 	hzn exchange deployment addpolicy -f horizon/deployment.policy.json $(HZN_ORG_ID)/policy-$(SERVICE_NAME)_$(SERVICE_VERSION)_$(ARCH)
 
-build-publish:
+build-publish-all-arches:
 	$(MAKE) build
 	$(MAKE) publish-service
 	$(MAKE) publish-service-policy

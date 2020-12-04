@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM arm64v8/alpine:latest
 
 COPY resources /
 
@@ -20,6 +20,8 @@ RUN apk update && apk add --no-cache \
 
 RUN curl https://codeload.github.com/edenhill/kafkacat/tar.gz/master | tar xzf - && cd kafkacat-* && bash ./bootstrap.sh
 RUN make -C /kafkacat-master bin-install
+
+USER ibm-workshop
 
 WORKDIR /
 

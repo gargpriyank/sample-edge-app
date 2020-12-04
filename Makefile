@@ -4,7 +4,7 @@ publish-esf-ieam:
 	cd esf-ieam && $(MAKE) publish-service
 
 publish-edge-app:
-	cd edge-app && $(MAKE) build-publish
+	cd edge-app && $(MAKE) build-publish-all-arches
 
 publish:
 	$(MAKE) publish-esf-ieam
