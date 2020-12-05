@@ -21,9 +21,9 @@ RUN apk update && apk add --no-cache \
 RUN curl https://codeload.github.com/edenhill/kafkacat/tar.gz/master | tar xzf - && cd kafkacat-* && bash ./bootstrap.sh
 RUN make -C /kafkacat-master bin-install
 
-RUN addgroup -S ibm-workshop && adduser -S ibm-workshop -G ibm-workshop
+RUN addgroup -S 1001 && adduser -S 1001 -G 1001
 
-USER ibm-workshop
+USER 1001
 
 WORKDIR /
 
